@@ -1,7 +1,10 @@
-## Compose sample
-### Prometheus & Grafana
+
+# Compose sample
+
+## Prometheus & Grafana
 
 Project structure:
+
 ```
 .
 ├── compose.yaml

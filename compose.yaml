@@ -37,14 +37,15 @@ services:
     networks:
       - monitoring
 
-  docker-exporter:
-    image: prom/docker-exporter
-    container_name: docker-exporter
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:v0.38.8
+    container_name: cadvisor
     ports:
-      - 9323:9323
-    restart: unless-stopped
+      - 9323:8080
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - /sys:/sys
+      - /var/lib/docker/:/var/lib/docker
     networks:
       - monitoring
 

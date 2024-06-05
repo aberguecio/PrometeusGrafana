@@ -12,6 +12,7 @@ This project sets up and deploys Prometheus, Grafana, Node Exporter, and cAdviso
 │   └── datasource.yml
 ├── prometheus
 │   └── prometheus.yml
+├── .env
 └── README.md
 ```
 
@@ -21,32 +22,41 @@ This project sets up and deploys Prometheus, Grafana, Node Exporter, and cAdviso
 - **compose.yaml**: Docker Compose configuration file that defines and configures the services for Prometheus, Grafana, Node Exporter, and cAdvisor.
 - **grafana/datasource.yml**: Configuration file for Grafana's datasource, specifying Prometheus as the data source.
 - **prometheus/prometheus.yml**: Configuration file for Prometheus, including scraping jobs for Prometheus, Node Exporter, and cAdvisor.
+- **.env**: Environment variables file to store sensitive information securely.
 - **README.md**: This README file.
 
 ## Installation and Usage
 
 1. **Clone the repository**:
     ```sh
-    git clone https://github.com/your_username/your_repository.git
+    git clone https://github.com/aberguecio/PrometheusGrafana.git
     cd your_repository
     ```
 
-2. **Create the Docker network**:
+2. **Create the `.env` file**:
+    ```sh
+    GF_SECURITY_ADMIN_USER=admin
+    GF_SECURITY_ADMIN_PASSWORD=password
+    GF_SERVER_ROOT_URL=http://localhost:3000
+    GF_SERVER_SERVE_FROM_SUB_PATH=true
+    ```
+
+3. **Create the Docker network**:
     ```sh
     docker network create monitoring
     ```
 
-3. **Start the services**:
+4. **Start the services**:
     ```sh
     docker-compose up -d
     ```
 
-4. **Access Grafana**:
+5. **Access Grafana**:
     - URL: `http://localhost:3000`
     - User: `admin`
     - Password: `grafana`
 
-5. **Access Prometheus**:
+6. **Access Prometheus**:
     - URL: `http://localhost:9090`
 
 ## External Monitoring Network

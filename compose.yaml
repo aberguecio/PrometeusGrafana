@@ -56,3 +56,7 @@ services:
 volumes:
   prom_data:
   grafana_data:
+
+networks:
+  monitoring:
+    external: true

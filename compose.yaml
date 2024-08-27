@@ -27,6 +27,7 @@ services:
       - GF_SERVER_SERVE_FROM_SUB_PATH=${GF_SERVER_SERVE_FROM_SUB_PATH}
     volumes:
       - ./grafana:/etc/grafana/provisioning/datasources
+      - grafana_data:/var/lib/grafana
     networks:
       - monitoring
 
@@ -54,7 +55,4 @@ services:
 
 volumes:
   prom_data:
-
-networks:
-  monitoring:
-    external: true
+  grafana_data:
